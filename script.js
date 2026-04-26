@@ -12,14 +12,17 @@ document.getElementById("studentForm").addEventListener("submit", function(e){
   };
 
   emailjs.send(
-    "service_acdxp3l",
+    "vanoten123",
     "template_dxigdc7",
     data
-  ).then(() => {
-    document.getElementById("msg").innerText = "✅ Registration sent! Check your email.";
+  )
+  .then((res) => {
+    console.log("SUCCESS", res);
+    alert("✅ Sent successfully!");
     e.target.reset();
-  }).catch((error) => {
-    console.log(error);
-    document.getElementById("msg").innerText = "❌ Failed to send.";
+  })
+  .catch((err) => {
+    console.log("FAILED", err);
+    alert("❌ Failed to send (check console)");
   });
 });
