@@ -50,8 +50,16 @@
 
     <button type="submit">Submit</button>
   </form>
+</div>
 
-  <p id="msg"></p>
+<!-- Modal -->
+<div id="modalOverlay" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-icon" id="modalIcon">✅</div>
+    <h3 id="modalTitle">Success!</h3>
+    <p id="modalMessage">Your registration was successful.</p>
+    <button class="modal-btn" id="modalBtn">OK</button>
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
