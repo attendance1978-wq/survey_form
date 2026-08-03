@@ -1,38 +1,81 @@
-/* ===== YOUR ORIGINAL CSS (keep as is) ===== */
+/* ===== YOUR ORIGINAL CSS (updated) ===== */
 body {
   font-family: Arial, sans-serif;
   background: #f4f6f8;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
 }
 
 .card {
   background: white;
-  padding: 25px;
+  padding: 30px 35px;
   border-radius: 12px;
-  width: 350px;
+  width: 400px;
+  max-width: 100%;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: left; /* changed from center */
+}
+
+.card h2 {
   text-align: center;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 22px;
+}
+
+.card p {
+  text-align: center;
+  color: #666;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Form group layout - labels above inputs */
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #333;
 }
 
 input, select {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
+  padding: 10px 12px;
+  margin: 0;
   border-radius: 8px;
   border: 1px solid #ddd;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
 }
 
 button {
   width: 100%;
-  padding: 10px;
+  padding: 11px;
   background: #0d6efd;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 8px;
+  transition: background 0.2s;
 }
 
 button:hover {
@@ -40,37 +83,27 @@ button:hover {
 }
 
 #msg {
-  margin-top: 10px;
+  margin-top: 14px;
+  text-align: center;
+  font-size: 14px;
+  color: #28a745;
+  min-height: 20px;
 }
 
-/* ===== ADD BOOTSTRAP OVERRIDES (place below) ===== */
-/* Keep your styles, but let Bootstrap enhance them */
-
-/* Make sure inputs use your styles, not Bootstrap's */
-input.form-control, 
-select.form-select {
-  width: 100% !important;
-  padding: 10px !important;
-  margin: 8px 0 !important;
-  border-radius: 8px !important;
-  border: 1px solid #ddd !important;
-  background: white !important;
+/* Two columns for first/last name */
+.name-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
-/* Keep your button style */
-button.btn {
-  width: 100% !important;
-  padding: 10px !important;
-  background: #0d6efd !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 8px !important;
-  cursor: pointer !important;
+/* Responsive */
+@media (max-width: 450px) {
+  .card {
+    padding: 20px;
+  }
+  .name-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }
-
-button.btn:hover {
-  background: #0b5ed7 !important;
-}
-
-/* Optionally add Bootstrap spacing utilities if you want */
-/* But your original CSS remains dominant */
