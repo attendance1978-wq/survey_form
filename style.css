@@ -1,3 +1,4 @@
+/* ===== YOUR ORIGINAL CSS (keep as is) ===== */
 body {
   font-family: Arial, sans-serif;
   background: #f4f6f8;
@@ -41,3 +42,35 @@ button:hover {
 #msg {
   margin-top: 10px;
 }
+
+/* ===== ADD BOOTSTRAP OVERRIDES (place below) ===== */
+/* Keep your styles, but let Bootstrap enhance them */
+
+/* Make sure inputs use your styles, not Bootstrap's */
+input.form-control, 
+select.form-select {
+  width: 100% !important;
+  padding: 10px !important;
+  margin: 8px 0 !important;
+  border-radius: 8px !important;
+  border: 1px solid #ddd !important;
+  background: white !important;
+}
+
+/* Keep your button style */
+button.btn {
+  width: 100% !important;
+  padding: 10px !important;
+  background: #0d6efd !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+}
+
+button.btn:hover {
+  background: #0b5ed7 !important;
+}
+
+/* Optionally add Bootstrap spacing utilities if you want */
+/* But your original CSS remains dominant */
