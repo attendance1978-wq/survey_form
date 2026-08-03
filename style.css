@@ -1,4 +1,4 @@
-/* ===== UPDATED CSS with Animations ===== */
+/* ===== UPDATED CSS with Input Spacing ===== */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -25,9 +25,9 @@ body {
 
 .card {
   background: white;
-  padding: 35px 40px 30px;
+  padding: 40px 45px 35px;
   border-radius: 20px;
-  width: 420px;
+  width: 450px;
   max-width: 100%;
   box-shadow: 0 20px 60px rgba(0,0,0,0.3);
   text-align: left;
@@ -78,7 +78,7 @@ body {
 .card h2 {
   text-align: center;
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   font-size: 24px;
   font-weight: 700;
   background: linear-gradient(135deg, #667eea, #764ba2);
@@ -97,13 +97,13 @@ body {
   text-align: center;
   color: #888;
   margin-top: 0;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   font-size: 14px;
 }
 
-/* Form group layout */
+/* Form group layout - IMPROVED SPACING */
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 20px; /* Increased spacing between fields */
   animation: fadeIn 0.5s ease-out forwards;
   opacity: 0;
 }
@@ -129,7 +129,7 @@ body {
   display: block;
   font-weight: 600;
   font-size: 13px;
-  margin-bottom: 5px;
+  margin-bottom: 6px; /* Space between label and input */
   color: #444;
   letter-spacing: 0.3px;
   transition: color 0.3s;
@@ -140,9 +140,10 @@ body {
   color: #667eea;
 }
 
+/* Input styling with spacing */
 input, select {
   width: 100%;
-  padding: 11px 14px;
+  padding: 12px 16px; /* More padding inside inputs */
   margin: 0;
   border-radius: 10px;
   border: 2px solid #e8ecf1;
@@ -150,6 +151,16 @@ input, select {
   box-sizing: border-box;
   transition: all 0.3s ease;
   background: #f8f9fb;
+}
+
+/* Extra spacing for select */
+select {
+  padding: 12px 16px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
 }
 
 input:hover, select:hover {
@@ -165,12 +176,7 @@ input:focus, select:focus {
   transform: translateY(-2px);
 }
 
-input:focus + .input-highlight,
-select:focus + .input-highlight {
-  width: 100%;
-}
-
-/* Input highlight animation */
+/* Input wrapper for highlight animation */
 .input-wrapper {
   position: relative;
 }
@@ -191,17 +197,22 @@ select:focus ~ .input-highlight {
   width: 100%;
 }
 
-/* Name row two columns */
+/* Name row with spacing */
 .name-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 16px; /* Space between first and last name */
+  margin-bottom: 0;
 }
 
-/* Submit button */
+.name-row .form-group {
+  margin-bottom: 0;
+}
+
+/* Submit button with spacing */
 button {
   width: 100%;
-  padding: 12px;
+  padding: 14px; /* More padding */
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
@@ -209,7 +220,7 @@ button {
   cursor: pointer;
   font-size: 16px;
   font-weight: 700;
-  margin-top: 8px;
+  margin-top: 10px;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -241,7 +252,7 @@ button:active {
 }
 
 #msg {
-  margin-top: 16px;
+  margin-top: 18px;
   text-align: center;
   font-size: 14px;
   color: #28a745;
@@ -258,6 +269,9 @@ button:active {
   .name-row {
     grid-template-columns: 1fr;
     gap: 0;
+  }
+  .name-row .form-group {
+    margin-bottom: 20px;
   }
   .card h2 {
     font-size: 20px;
