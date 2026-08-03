@@ -1,109 +1,265 @@
-/* ===== YOUR ORIGINAL CSS (updated) ===== */
+/* ===== UPDATED CSS with Animations ===== */
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
   padding: 20px;
+  animation: bgShift 10s ease-in-out infinite alternate;
+}
+
+@keyframes bgShift {
+  0% {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  50% {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  }
+  100% {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  }
 }
 
 .card {
   background: white;
-  padding: 30px 35px;
-  border-radius: 12px;
-  width: 400px;
+  padding: 35px 40px 30px;
+  border-radius: 20px;
+  width: 420px;
   max-width: 100%;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  text-align: left; /* changed from center */
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  text-align: left;
+  animation: slideUp 0.6s ease-out, float 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Decorative gradient line at top */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+  background-size: 300% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
 }
 
 .card h2 {
   text-align: center;
-  margin-top: 0;
+  margin-top: 5px;
   margin-bottom: 5px;
-  font-size: 22px;
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: pulseText 2s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
 }
 
 .card p {
   text-align: center;
-  color: #666;
+  color: #888;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 14px;
 }
 
-/* Form group layout - labels above inputs */
+/* Form group layout */
 .form-group {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.3s; }
+.form-group:nth-child(4) { animation-delay: 0.4s; }
+.form-group:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .form-group label {
   display: block;
   font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 4px;
-  color: #333;
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #444;
+  letter-spacing: 0.3px;
+  transition: color 0.3s;
+}
+
+.form-group label i {
+  margin-right: 6px;
+  color: #667eea;
 }
 
 input, select {
   width: 100%;
-  padding: 10px 12px;
+  padding: 11px 14px;
   margin: 0;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  border-radius: 10px;
+  border: 2px solid #e8ecf1;
   font-size: 14px;
   box-sizing: border-box;
-  transition: border-color 0.2s;
+  transition: all 0.3s ease;
+  background: #f8f9fb;
+}
+
+input:hover, select:hover {
+  border-color: #b0b8c8;
+  background: #fff;
 }
 
 input:focus, select:focus {
   outline: none;
-  border-color: #0d6efd;
-  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+  background: #fff;
+  transform: translateY(-2px);
 }
 
-button {
+input:focus + .input-highlight,
+select:focus + .input-highlight {
   width: 100%;
-  padding: 11px;
-  background: #0d6efd;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  margin-top: 8px;
-  transition: background 0.2s;
 }
 
-button:hover {
-  background: #0b5ed7;
+/* Input highlight animation */
+.input-wrapper {
+  position: relative;
 }
 
-#msg {
-  margin-top: 14px;
-  text-align: center;
-  font-size: 14px;
-  color: #28a745;
-  min-height: 20px;
+.input-highlight {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: width 0.4s ease;
+  border-radius: 0 0 10px 10px;
 }
 
-/* Two columns for first/last name */
+input:focus ~ .input-highlight,
+select:focus ~ .input-highlight {
+  width: 100%;
+}
+
+/* Name row two columns */
 .name-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
+/* Submit button */
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+#msg {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 14px;
+  color: #28a745;
+  min-height: 20px;
+  font-weight: 600;
+  animation: fadeIn 0.4s ease-out;
+}
+
 /* Responsive */
-@media (max-width: 450px) {
+@media (max-width: 480px) {
   .card {
-    padding: 20px;
+    padding: 25px 20px;
   }
   .name-row {
     grid-template-columns: 1fr;
     gap: 0;
+  }
+  .card h2 {
+    font-size: 20px;
   }
 }
